@@ -1,1 +1,19 @@
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; }
+
+body { background-color: #483d8b; }
+
+a { display: inline-block; width: 100%; text-align: center; font-weight: 100; text-decoration: none; transition: all 0.5s; }
+a :hover { background: rgba(0, 0, 0, 0.3); }
+
+.wrapper { max-width: 1000px; margin: 0 auto; padding: 50px; }
+
+.primary-nav ul { margin: 0; padding: 0; display: flex; background-color: #f0f6ff; border-radius: 0.25rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3); }
+
+.primary-nav ul li { flex: 3; list-style: none; padding: 20px 5px; }
+
+.primary-nav .social { flex: 1; }
+
+@media only screen and (max-width: 768px) { .primary-nav ul { flex-wrap: wrap; }
+  .primary-nav ul li { flex: 1 1 50%; }
+  .primary-nav .social { flex: 1 1 25%; } }
+@media only screen and (max-width: 445px) { .primary-nav ul li { flex: 1 1 100%; } }
