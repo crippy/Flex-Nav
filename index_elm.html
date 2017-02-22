@@ -1,0 +1,31 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>FlexNav  - Playground</title>
+        <meta name="description" content="Flexbox Navigation - Playground for flexbox">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+       <link href="stylesheets/main.css" media="screen, projection" rel="stylesheet" type="text/css" /> 
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    </head>
+
+    <body>
+    </body>
+
+    <script type="text/javascript" src="main.js"></script>
+    <script>
+      var app = Elm.Main.fullscreen();
+
+      window.onclick = function(e) {
+        app.ports.bodyClick.send(e.target.classList.contains('menu'));
+      }
+    </script>
+        
+    </body>
+</html>
