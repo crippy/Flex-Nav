@@ -1,9 +1,12 @@
 import Html exposing (beginnerProgram, div, a, text, nav, ul, li, i)
 import Html.Events exposing (onClick)
 import Html.Attributes exposing (rel, class, href, rel, media)
+import List exposing (map)
 
 main =
   beginnerProgram { model = 0, view = view, update = update }
+
+update msg model = model
 
 view model =
   div [ class "wrapper" ]
@@ -16,60 +19,55 @@ view model =
       , a [ class "menu", href "#" ]
         [ text "Menu" ]
       , nav [ class "prim-nav" ]
-        [ ul []
-          [ li []
-            [ a [ href "#" ]
-              [ text "Home" ]
-            ]
-          , li []
-            [ a [ href "#" ]
-              [ text "About" ]
-            ]
-          , li []
-            [ a [ href "#" ]
-              [ text "Pricing" ]
-            ]
-          , li []
-            [ a [ href "#" ]
-              [ text "Partners" ]
-            ]
-          , li []
-            [ a [ href "#" ]
-              [ text "Articles" ]
-            , li []
-              [ a [ href "#" ]
-                [ text "Contact" ]
-              ]
-            , li [ class "social" ]
-              [ a [ href "#" ]
-                [ i [ class "fa fa-facebook" ]
-                  []
-                ]
-              ]
-            , li [ class "social" ]
-              [ a [ href "#" ]
-                [ i [ class "fa fa-twitter" ]
-                  []
-                ]
-              ]
-            , li [ class "social" ]
-              [ a [ href "#" ]
-                [ i [ class "fa fa-instagram" ]
-                  []
-                ]
-              ]
-            , li [ class "social" ]
-              [ a [ href "#" ]
-                [ i [ class "fa fa-pinterest" ]
-                  []
-                ]
-              ]
-            ]
-          ]
+        [ ul [] (map linkToLi links ++ socialLinks)
         ]
       ]
     ]
 
-type Msg = Increment | Decrement
+-- Stuff for view
+type alias Link =
+  { href : String
+  , text : String
+  }
 
-update msg model = model
+links =
+  [ { href = "#", text = "Home" }
+  , { href = "#", text = "About" }
+  , { href = "#", text = "Pricing" }
+  , { href = "#", text = "Partners" }
+  , { href = "#", text = "Articles" }
+  , { href = "#", text = "Contact" }
+  ]
+
+linkToLi link =
+  li []
+  [ a [ href link.href ]
+    [ text link.text ]
+  ]
+
+socialLinks =
+  [ li [ class "social" ]
+    [ a [ href "#" ]
+      [ i [ class "fa fa-facebook" ]
+        []
+      ]
+    ]
+  , li [ class "social" ]
+    [ a [ href "#" ]
+      [ i [ class "fa fa-twitter" ]
+        []
+      ]
+    ]
+  , li [ class "social" ]
+    [ a [ href "#" ]
+      [ i [ class "fa fa-instagram" ]
+        []
+      ]
+    ]
+  , li [ class "social" ]
+    [ a [ href "#" ]
+      [ i [ class "fa fa-pinterest" ]
+        []
+      ]
+    ]
+  ]
