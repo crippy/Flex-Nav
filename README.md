@@ -1,6 +1,6 @@
 # Flexbox Playground
 
-Experirmental project with Flexbox layout featuring a navigational element. 
+Experimental project with Flexbox layout featuring a navigational element. 
 Feel free to use and adapt to your own personal needs. 
 
 ## Features
